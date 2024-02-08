@@ -1,0 +1,56 @@
+public class Arithmetic {
+    public static void main(String[] args) {
+        System.out.println("Please enter a number, operation, and number. For example: 2 + 2");
+
+        try {
+            double inputA = Double.parseDouble(args[0]);
+            double inputB = Double.parseDouble(args[2]);
+            String operation = args[1];
+
+            Calculator calc = new Calculator();
+            double theAnswer = 0;
+
+            switch (operation) {
+                case "+":
+                    theAnswer = calc.add(inputA, inputB);
+                    break;
+                case "-":
+                    theAnswer = calc.subtract(inputA, inputB);
+                    break;
+                case "*":
+                    theAnswer = calc.multiply(inputA, inputB);
+                    break;
+                case "/":
+                    theAnswer = calc.divide(inputA, inputB);
+                    break;
+                default:
+                    System.out.println("Invalid operation. Please use '+', '-', '*', or '/'");
+                    return;
+            }
+            System.out.println("The result is: " + theAnswer);
+        } catch (Exception e) {
+            System.out.println("Please provide 2 numeric arguments and a valid operation symbol (+, -, *, /)");
+        }
+    }
+}
+
+class Calculator {
+    public double add(double inputA, double inputB) {
+        return inputA + inputB;
+    }
+
+    public double subtract(double inputA, double inputB) {
+        return inputA - inputB;
+    }
+
+    public double multiply(double inputA, double inputB) {
+        return inputA * inputB;
+    }
+
+    public double divide(double inputA, double inputB) {
+        if (inputB == 0) {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
+        return inputA / inputB;
+    }
+}
