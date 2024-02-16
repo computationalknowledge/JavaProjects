@@ -1,0 +1,61 @@
+// Define WeaponType enum for different weapon types in the Star Trek universe
+enum WeaponType {
+    PHASER, PHOTON_TORPEDO, DISRUPTOR, PLASMA_CANNON
+}
+
+// Define Weapon class
+class Weapon {
+    private WeaponType weaponType;
+    private int weaponPower;
+
+    // Constructor
+    public Weapon(WeaponType weaponType, int weaponPower) {
+        this.weaponType = weaponType;
+        this.weaponPower = weaponPower;
+    }
+
+    // Getters and Setters
+    // ...
+
+    // Other methods as needed
+    // ...
+}
+
+// Define Starship class
+class Starship {
+    private Weapon primaryWeapon;
+
+    // Constructor
+    public Starship(Weapon primaryWeapon) {
+        this.primaryWeapon = primaryWeapon;
+    }
+
+    // Other methods and properties for the Starship
+    // ...
+}
+
+// Define StarFleet class with factory method
+public class StarFleet {
+    private static final int NUM_STARSHIPS = 100;
+
+    // Factory method to create 100 Starships
+    public static Starship[] createStarships() {
+        Starship[] starships = new Starship[NUM_STARSHIPS];
+        // Logic to create and assign weapons to each starship
+        for (int i = 0; i < NUM_STARSHIPS; i++) {
+            WeaponType weaponType = // Logic to select a weapon type for the starship
+            int weaponPower = // Logic to set weapon power
+            Weapon weapon = new Weapon(weaponType, weaponPower);
+            Starship starship = new Starship(weapon);
+            starships[i] = starship;
+        }
+        return starships;
+    }
+
+    public static void main(String[] args) {
+        // Create 100 Starships using the factory method
+        Starship[] starships = createStarships();
+        // Additional logic to use the created Starships
+        // ...
+    }
+}
